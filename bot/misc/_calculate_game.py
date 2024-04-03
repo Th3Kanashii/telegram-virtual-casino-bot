@@ -36,5 +36,5 @@ def calculate_dice_dart_bowling(bet_amount: int, dice_value: int) -> Union[int, 
     :param dice_value: The value rolled on the dice (1-6).
     :return: The amount won by the user.
     """
-    win_multipliers = {4: 1, 5: 1.5, 6: 3}
+    win_multipliers = {4: 1.5, 5: 2, 6: 3}
     return bet_amount * win_multipliers.get(dice_value, -1)

@@ -39,29 +39,62 @@ button-back = 🔙 Back
 
 slots = 💰 <b>Balance { $balance } 💎 (GEMS)
 
-        🎰️ Spin and knock out a winning combination</b>
+        🎰️ Spin and knock out a winning combination
+
+        Three identical symbols (except seven) – 4x
+        7️⃣7️⃣▫️ – 3x
+        7️⃣7️⃣7️⃣ – 5x
+
+        🍀 Have fun playing!</b>
 
 dice =  💰 <b>Balance { $balance } 💎 (GEMS)
 
-        🎲️ Roll dice and try your luck</b>
+        🎲️ Roll dice and try your luck
+
+        Winnings:
+        · 4️⃣ — 1.5x
+        · 5️⃣ — 2x
+        · 6️⃣ — 3x
+
+        🍀 Have fun playing!</b>
 
 basket = 💰 <b>Balance { $balance } 💎 (GEMS)
 
-         🏀 Shoot the ball into the basket to win. The size of the winning depends on the quality of the shot</b>
+         🏀 Shoot the ball into the basket to win. The size of the winning depends on the quality of the shot:
+
+         Splash shot — 2.5x
+         Shot — 1.5x
+
+         🍀 Have fun playing!</b>
 
 darts = 💰 <b>Balance { $balance } 💎 (GEMS)
 
-        🎯 Shoot dart into the target to win</b>
+        🎯 Shoot the dart into the center of the target to win. The size of the winning depends on the quality of the shot:
+
+        · Into the centre — 3x
+        · 1 circle from the centre — 1.5x
+        · 2 circle from the centre — 1x
+
+        🍀 Have fun playing!</b>
 
 bowling = 💰 <b>Balance { $balance } 💎 (GEMS)
 
-          🎳️ Knock out a strike and win x5 of the bet</b>
+          🎳️ Knock out a strike and win x3 of the bet
+
+          Combinations and winnings:
+          · Strike — 3x
+          · One pin left — 1.5x
+
+          🍀 Have fun playing!</b>
 
 football = 💰 <b>Balance { $balance } 💎 (GEMS)
 
-           ⚽️ Score a goal and win x1.5 of the bet
+           ⚽️ Score a goal. The size of the winning depends on the quality of the goal:
 
-           ⭐️There are more winning combinations than losing ones</b>
+           Splash goal — 2.5x
+           Goal — 1.5x
+
+           🍀 Have fun playing!</b>
 
 slots-play = 🔃 Spin
 dice-play = 🎲️ Roll
@@ -77,5 +110,5 @@ button-max = Max.
 good-luck = 🍀 <b>Good Luck!</b>
 win = ✅️ <b>You won { $number } 💎</b>
 lose = 😬 Unlucky again, 🙄 Unlucky, 😲 Nice try, 😣 Fiasco, 😔 Fail
-zero-balance = <b>Not enough crystals 💎.
-               Reduce the bet or restart the bot (/start)</b>
+zero-balance = 💎 <b>Insufficient crystals.
+               😄 Please stop or restart the bot (/start)</b>

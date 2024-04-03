@@ -89,6 +89,9 @@ async def play_game(
     :param uow: The unit of work.
     :return: The edited message.
     """
+    if user.balance < 10:
+        return callback.message.edit_text(text=i18n.get("zero-balance"))
+
     data = await state.get_data()
     result = await callback.message.edit_text(i18n.get("good-luck"))
 
@@ -98,7 +101,7 @@ async def play_game(
     await asyncio.sleep(2)
 
     await uow.commit(user)
-    await result.edit_text(text=i18n.get("win", number=number) if number > 0 else lose)
+    await result.edit_text(text=i18n.get("win", number=number-data["bet"]) if number > 0 else lose)
 
     return callback.message.answer(
         text=i18n.get(data["game"], balance=user.balance),
