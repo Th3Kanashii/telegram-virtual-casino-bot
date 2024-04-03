@@ -72,8 +72,8 @@ darts = 💰 <b>Balance { $balance } 💎 (GEMS)
         🎯 Shoot the dart into the center of the target to win. The size of the winning depends on the quality of the shot:
 
         · Into the centre — 3x
-        · 1 circle from the centre — 1.5x
-        · 2 circle from the centre — 1x
+        · 1 circle from the centre — 2x
+        · 2 circle from the centre — 1.5x
 
         🍀 Have fun playing!</b>
 
@@ -83,7 +83,7 @@ bowling = 💰 <b>Balance { $balance } 💎 (GEMS)
 
           Combinations and winnings:
           · Strike — 3x
-          · One pin left — 1.5x
+          · One pin left — 2x
 
           🍀 Have fun playing!</b>
 
