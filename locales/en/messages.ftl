@@ -23,7 +23,7 @@ help = 😍 <b>{ $name }, commands:
        🔄 Please note: the bot is for demonstration purposes only, and your data may be reset at any time!
        ❌ Remember: gambling addiction is a disease, and there are no paid options in the bot.
 
-       🔗 Project link: <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a></b> Translate this ftl to English
+       🔗 Project link: <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a></b>
 
 button-games = 🎲 Games
 button-language = 🌐 Language
@@ -77,3 +77,5 @@ button-max = Max.
 good-luck = 🍀 <b>Good Luck!</b>
 win = ✅️ <b>You won { $number } 💎</b>
 lose = 😬 Unlucky again, 🙄 Unlucky, 😲 Nice try, 😣 Fiasco, 😔 Fail
+zero-balance = <b>Not enough crystals 💎.
+               Reduce the bet or restart the bot (/start)</b>
