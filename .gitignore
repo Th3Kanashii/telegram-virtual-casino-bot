@@ -1,0 +1,26 @@
+# Project
+.idea/
+.vscode/
+.venv/
+.tests/
+.env
+venv/
+poetry.lock
+
+# Cache
+__pycache__/
+*.py[cod]
+.cache/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage/
+
+# Build
+env/
+build/
+_build/
+dist/
+site/
+*.egg-info/
+*.egg

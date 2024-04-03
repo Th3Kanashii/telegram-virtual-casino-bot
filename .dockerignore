@@ -1,0 +1,21 @@
+# Project
+.vscode/
+.idea/
+.github/
+.*ignore
+.*yaml
+.editorconfig
+Makefile
+LICENCE
+README.md
+
+# Cache
+__pycache__/
+*.py[cod]
+
+# Environment
+.env*
+
+# Docker
+docker-compose*.yml
+Dockerfile
