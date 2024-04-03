@@ -57,9 +57,9 @@ def create_dispatcher(config: Config) -> Dispatcher:
     """
     redis: Redis = Redis(
         connection_pool=ConnectionPool(
-            host=config.redis.host,
-            port=config.redis.port,
-            db=config.redis.db,
+            host=config.redis_host,
+            port=config.redis_port,
+            db=config.redis_db,
         )
     )
     dispatcher: Dispatcher = Dispatcher(
