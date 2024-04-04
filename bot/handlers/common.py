@@ -23,12 +23,13 @@ async def start_command(message: Message, i18n: I18nContext, user: DBUser, uow: 
     :param message: The message.
     :param i18n: The i18n context.
     :param user: The user.
+    :param uow: The unit of work.
     :return: The response.
     """
     user.balance = 10000
     await uow.commit(user)
     return message.answer(
-        text=i18n.get("start", balance=user.balance, name=user.name),
+        text=i18n.get("start", balance=user.balance, name=user.mention),
         reply_markup=menu(i18n=i18n),
     )
 
@@ -45,5 +46,15 @@ async def help_command(message: Message, i18n: I18nContext, user: DBUser) -> Any
     :return: The response.
     """
     return message.answer_photo(
-        photo="https://imgur.com/BIAW92Z", caption=i18n.get("help", name=user.name)
+        photo="https://imgur.com/BIAW92Z", caption=i18n.get("help", name=user.mention)
     )
+
+
+@common_router.message()
+async def delete(message: Message) -> Any:
+    """
+    Delete the message.
+
+    :param message: The message.
+    """
+    return message.delete()

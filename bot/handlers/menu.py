@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any, Final
 
 from aiogram import F, Router
-from aiogram.types import CallbackQuery, Message
+from aiogram.types import CallbackQuery
 from aiogram_i18n import I18nContext
 
 from ..enums import Back, Menu
@@ -41,7 +41,8 @@ async def back_menu(callback: CallbackQuery, i18n: I18nContext, user: DBUser) ->
     :return: The edited message.
     """
     return callback.message.edit_text(
-        text=i18n.get("start", balance=user.balance, name=user.name), reply_markup=menu(i18n=i18n)
+        text=i18n.get("start", balance=user.balance, name=user.mention),
+        reply_markup=menu(i18n=i18n),
     )
 
 
@@ -56,7 +57,7 @@ async def back_games(callback: CallbackQuery, i18n: I18nContext, user: DBUser) -
     :return: The edited message.
     """
     return callback.message.edit_text(
-        text=i18n.get("select-game", balance=user.balance, name=user.name),
+        text=i18n.get("select-game", balance=user.balance, name=user.mention),
         reply_markup=games(i18n=i18n),
     )
 
@@ -72,7 +73,7 @@ async def choose_a_language(callback: CallbackQuery, i18n: I18nContext, user: DB
     :return: The edited message.
     """
     return callback.message.edit_text(
-        text=i18n.get("language", name=user.name), reply_markup=select_language(i18n=i18n)
+        text=i18n.get("language", name=user.mention), reply_markup=select_language(i18n=i18n)
     )
 
 
@@ -92,15 +93,6 @@ async def language_changed(
     """
     await i18n.set_locale(locale=callback_data.language)
     return callback.message.edit_text(
-        text=i18n.get("start", balance=user.balance, name=user.name), reply_markup=menu(i18n=i18n)
+        text=i18n.get("start", balance=user.balance, name=user.mention),
+        reply_markup=menu(i18n=i18n),
     )
-
-
-@menu_router.message()
-async def delete(message: Message) -> Any:
-    """
-    Delete the message.
-
-    :param message: The message.
-    """
-    return message.delete()

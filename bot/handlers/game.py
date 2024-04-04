@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING, Any, Dict, Final
 from aiogram import F, Router
 from aiogram.enums.dice_emoji import DiceEmoji
 from aiogram.fsm.context import FSMContext
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, Message
 from aiogram_i18n import I18nContext
 
 from ..enums import Game
@@ -89,19 +89,21 @@ async def play_game(
     :param uow: The unit of work.
     :return: The edited message.
     """
-    if user.balance < 10:
+    data = await state.get_data()
+    if user.balance < data["bet"]:
         return callback.message.edit_text(text=i18n.get("zero-balance"))
 
-    data = await state.get_data()
-    result = await callback.message.edit_text(i18n.get("good-luck"))
+    result: Message = await callback.message.edit_text(i18n.get("good-luck"))
+    dice: Message = await callback.message.answer_dice(emoji=dices[data["game"]])
 
-    dice = await callback.message.answer_dice(emoji=dices[data["game"]])
     number = get_result_game(data=data, dice=dice.dice.value, user=user)
     lose = secrets.choice(i18n.get("lose").split(","))
     await asyncio.sleep(2)
 
     await uow.commit(user)
-    await result.edit_text(text=i18n.get("win", number=number-data["bet"]) if number > 0 else lose)
+    await result.edit_text(
+        text=i18n.get("win", number=number - data["bet"]) if number > 0 else lose
+    )
 
     return callback.message.answer(
         text=i18n.get(data["game"], balance=user.balance),

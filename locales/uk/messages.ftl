@@ -96,12 +96,12 @@ football = 💰 <b>Баланс { $balance } 💎 (КРИСТАЛИ)
 
            🍀 Приємної гри!</b>
 
-slots-play = 🔃 Оберіть
+slots-play = 🔃 Спін
 dice-play = 🎲️ Кинути
 basket-play = 🏀 Кинути
 darts-play = 🎯 Кинути
 bowling-play = 🎳️ Кинути
-football-play = ⚽️ Кинути
+football-play = ⚽️ Пнути
 
 button-min = Мін.
 button-double = Подвоїти
