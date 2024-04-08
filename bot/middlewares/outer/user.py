@@ -13,6 +13,10 @@ if TYPE_CHECKING:
 
 
 class UserMiddleware(BaseMiddleware):
+    """
+    Middleware for handling users.
+    """
+
     async def __call__(
         self,
         handler: Callable[[TelegramObject, dict[str, Any]], Awaitable[Any]],

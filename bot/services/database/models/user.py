@@ -20,6 +20,7 @@ class DBUser(Base, TimestampMixin):
     name: Mapped[str] = mapped_column(nullable=False)
     locale: Mapped[str] = mapped_column(String(length=2), nullable=False)
     balance: Mapped[int] = mapped_column(nullable=False, default=0)
+    refferal: Mapped[Int64] = mapped_column(nullable=True)
 
     @property
     def url(self) -> str:

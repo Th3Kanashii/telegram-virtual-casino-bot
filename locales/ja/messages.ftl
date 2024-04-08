@@ -25,9 +25,26 @@ help = 😍 <b>{ $name }、コマンド：
 
        🔗 プロジェクトリンク： <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a></b>
 
+refferal = 🥰 <b>{ $name }さん、招待したユーザーごとに 10,000 クリスタル 💎 をゲットしてください！
+           🔩 <u>あなた</u> は既に紹介した人数: <code>{ $count }</code>
+           🔗 紹介リンク:</b>
+           <code>{ $link }</code>
+
+share = 👋 こんにちは、友人！最近見つけた素晴らしいボットについてお伝えしたいと思います。
+
+        🎮 ここではさまざまなゲームがプレイできます。常に。完全無料です！
+
+        ℹ️ そして、もし以下のリンクをフォローすると、ボーナスがもらえます：
+        ↘️ スタート時に 30,000 💎 クリスタル！
+
+        🔗 このリンクをフォローしてください：
+        { $link }
+
 button-games = 🎲 ゲーム
+button-refferals = ☕ 紹介
 button-language = 🌐 言語
 button-support = 💬 サポート
+button-all = ❤️ 友達に教えて
 
 button-slots = 🎰 スロット
 button-dice = 🎲 サイコロ

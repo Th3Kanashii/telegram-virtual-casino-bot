@@ -25,9 +25,26 @@ help = 😍 <b>{ $name }, commands:
 
        🔗 Project link: <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a></b>
 
+refferal = 🥰 <b>{ $name }, get 10,000 crystals 💎 for each invited user!
+           🔩 <u>You</u> have already referred: <code>{ $count }</code>
+           🔗 Referral link:</b>
+           <code>{ $link }</code>
+
+share = 👋 Hi friend! I want to tell you about an awesome bot I recently found.
+
+        🎮 Here you can play various games. All the time. Absolutely for free!
+
+        ℹ️ And also, if you follow the link below, you'll get a bonus:
+        ↘️ 30,000 💎 crystals to start with!
+
+        🔗 Please follow this link:
+        { $link }
+
 button-games = 🎲 Games
+button-refferals = ☕ Refferals
 button-language = 🌐 Language
 button-support = 💬 Support
+button-all = ❤️ Tell friends
 
 button-slots = 🎰 Slots
 button-dice = 🎲 Dice

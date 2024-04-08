@@ -1,3 +1,4 @@
+from aiogram import html
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram_i18n import I18nContext
@@ -37,6 +38,7 @@ def menu(i18n: I18nContext) -> InlineKeyboardMarkup:
 
     keyboard.add(InlineKeyboardButton(text=i18n.get("button-games"), callback_data=Menu.GAMES))
     keyboard.row(
+        InlineKeyboardButton(text=i18n.get("button-refferals"), callback_data=Menu.REFERRALS),
         InlineKeyboardButton(text=i18n.get("button-language"), callback_data=Menu.LANGUAGE),
         InlineKeyboardButton(text=i18n.get("button-support"), url="https://t.me/Th3Kanashii"),
         width=2,
@@ -105,8 +107,29 @@ def play(i18n: I18nContext, game: str, bet: int = 10) -> InlineKeyboardMarkup:
                 text=i18n.get("button-max"), callback_data=Bet(operation=Operation.MAX).pack()
             ),
             InlineKeyboardButton(text=i18n.get("button-back"), callback_data=Back.GAME),
-            InlineKeyboardButton(text=i18n.get(f"{game}-play"), callback_data=f"{game}-play"),
+            InlineKeyboardButton(text=i18n.get(f"{game}-play"), callback_data=Game.PLAY),
         ],
         width=3,
+    )
+    return keyboard.as_markup()
+
+
+def back_menu(i18n: I18nContext, link: str) -> InlineKeyboardMarkup:
+    """
+    Create an inline keyboard for the back to the menu.
+
+    :param i18n: The i18n context.
+    :param link: The link.
+    :return: The inline keyboard.
+    """
+    keyboard: InlineKeyboardBuilder = InlineKeyboardBuilder()
+
+    keyboard.row(
+        InlineKeyboardButton(
+            text=i18n.get("button-all"),
+            url=f"https://telegram.me/share/url?url={html.quote(i18n.get('share', link=link))}",
+        ),
+        InlineKeyboardButton(text=i18n.get("button-back"), callback_data=Back.DEFAULT),
+        width=1
     )
     return keyboard.as_markup()

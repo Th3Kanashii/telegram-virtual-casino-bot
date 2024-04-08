@@ -27,6 +27,7 @@ def upgrade() -> None:
         sa.Column("name", sa.String(), nullable=False),
         sa.Column("locale", sa.String(length=2), nullable=False),
         sa.Column("balance", sa.Integer(), nullable=False),
+        sa.Column("refferal", sa.BigInteger(), nullable=True),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),

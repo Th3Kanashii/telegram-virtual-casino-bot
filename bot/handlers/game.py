@@ -75,7 +75,7 @@ async def bet(
     )
 
 
-@game_router.callback_query(F.data.endswith(Game.PLAY))
+@game_router.callback_query(F.data == Game.PLAY)
 async def play_game(
     callback: CallbackQuery, state: FSMContext, i18n: I18nContext, user: DBUser, uow: UoW
 ) -> Any:
@@ -93,17 +93,16 @@ async def play_game(
     if user.balance < data["bet"]:
         return callback.message.edit_text(text=i18n.get("zero-balance"))
 
-    result: Message = await callback.message.edit_text(i18n.get("good-luck"))
+    game: Message = await callback.message.edit_text(i18n.get("good-luck"))
     dice: Message = await callback.message.answer_dice(emoji=dices[data["game"]])
 
-    number = get_result_game(data=data, dice=dice.dice.value, user=user)
+    result = get_result_game(data=data, dice=dice.dice.value)
     lose = secrets.choice(i18n.get("lose").split(","))
     await asyncio.sleep(2)
 
+    user.balance += round(result)
     await uow.commit(user)
-    await result.edit_text(
-        text=i18n.get("win", number=number - data["bet"]) if number > 0 else lose
-    )
+    await game.edit_text(text=i18n.get("win", number=result - data["bet"]) if result > 0 else lose)
 
     return callback.message.answer(
         text=i18n.get(data["game"], balance=user.balance),

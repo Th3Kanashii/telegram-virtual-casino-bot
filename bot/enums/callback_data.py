@@ -9,6 +9,7 @@ class Menu(StrEnum):
     """
 
     GAMES = auto()
+    REFERRALS = auto()
     LANGUAGE = auto()
 
 
