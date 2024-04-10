@@ -88,9 +88,9 @@ darts = 💰 <b>Balance { $balance } 💎 (GEMS)
 
         🎯 Shoot the dart into the center of the target to win. The size of the winning depends on the quality of the shot:
 
-        · Into the centre — 3x
-        · 1 circle from the centre — 2x
-        · 2 circle from the centre — 1.5x
+        · Into the centre — 2x
+        · 1 circle from the centre — 1.5x
+        · 2 circle from the centre — 1x
 
         🍀 Have fun playing!</b>
 
@@ -99,17 +99,14 @@ bowling = 💰 <b>Balance { $balance } 💎 (GEMS)
           🎳️ Knock out a strike and win x3 of the bet
 
           Combinations and winnings:
-          · Strike — 3x
-          · One pin left — 2x
+          · Strike — 5x
+          · One pin left — 1.5x
 
           🍀 Have fun playing!</b>
 
 football = 💰 <b>Balance { $balance } 💎 (GEMS)
 
-           ⚽️ Score a goal. The size of the winning depends on the quality of the goal:
-
-           Splash goal — 2.5x
-           Goal — 1.5x
+           ⚽️ Score a goal and win x1.5 of the bet
 
            🍀 Have fun playing!</b>
 
