@@ -18,7 +18,7 @@ async def _polling_startup(bot: Bot) -> None:
     )
 
 
-async def run_polling(dispatcher: Dispatcher, bot: Bot) -> None:
+async def start_polling(dispatcher: Dispatcher, bot: Bot) -> None:
     """
     Run the Telegram bot with long polling.
 
@@ -26,4 +26,4 @@ async def run_polling(dispatcher: Dispatcher, bot: Bot) -> None:
     :param bot: The instance of the Telegram bot.
     """
     dispatcher.startup.register(_polling_startup)
-    return await dispatcher.start_polling(bot)
+    await dispatcher.start_polling(bot)

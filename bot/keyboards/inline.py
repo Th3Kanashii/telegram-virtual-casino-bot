@@ -130,6 +130,6 @@ def back_menu(i18n: I18nContext, link: str) -> InlineKeyboardMarkup:
             url=f"https://telegram.me/share/url?url={html.quote(i18n.get('share', link=link))}",
         ),
         InlineKeyboardButton(text=i18n.get("button-back"), callback_data=Back.DEFAULT),
-        width=1
+        width=1,
     )
     return keyboard.as_markup()
