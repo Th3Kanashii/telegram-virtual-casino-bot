@@ -82,6 +82,11 @@ exclude = [
 ]
 
 [[tool.mypy.overrides]]
+module = ["redis.*"]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
 module = ["bot.handlers.*"]
 strict_optional = false
 warn_return_any = false
