@@ -12,7 +12,7 @@ from aiogram_i18n.cores import FluentRuntimeCore
 from redis.asyncio import ConnectionPool, Redis
 
 from ..enums import Locale
-from ..handlers import _setup_routers
+from ..handlers import setup_routers
 from ..middlewares import DBSessionMiddleware, ThrottlingMiddleware, UserManager, UserMiddleware
 from ..services.database import create_pool
 
@@ -65,7 +65,7 @@ def create_dispatcher(config: Config) -> Dispatcher:
     dispatcher: Dispatcher = Dispatcher(
         name="main_dispatcher", storage=RedisStorage(redis=redis), config=config
     )
-    _setup_routers(dispatcher=dispatcher)
+    setup_routers(dispatcher=dispatcher)
     _setup_outer_middlewares(dispatcher=dispatcher, config=config)
     _setup_inner_middlewares(dispatcher=dispatcher)
     return dispatcher

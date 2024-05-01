@@ -5,7 +5,7 @@ from .game import game_router
 from .menu import menu_router
 
 
-def _setup_routers(dispatcher: Dispatcher) -> None:
+def setup_routers(dispatcher: Dispatcher) -> None:
     """
     Include routers in the dispatcher.
 
@@ -20,5 +20,5 @@ def _setup_routers(dispatcher: Dispatcher) -> None:
 
 
 __all__ = [
-    "_setup_routers",
+    "setup_routers",
 ]
