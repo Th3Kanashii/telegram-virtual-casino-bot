@@ -1,4 +1,4 @@
-from .factories import Bet, Games, Language
+from .factory import Bet, Games, Language
 from .inline import back_menu, games, menu, play, select_language
 
 __all__ = [

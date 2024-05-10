@@ -4,7 +4,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram_i18n import I18nContext
 
 from ..enums import Back, Game, Locale, Menu, Operation
-from .factories import Bet, Games, Language
+from .factory import Bet, Games, Language
 
 
 def select_language(i18n: I18nContext) -> InlineKeyboardMarkup:
