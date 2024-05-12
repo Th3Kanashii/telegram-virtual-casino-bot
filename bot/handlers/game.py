@@ -12,7 +12,7 @@ from aiogram_i18n import I18nContext
 
 from ..enums import Game
 from ..keyboards import Bet, Games, play
-from ..misc import get_operation_snippet, get_result_game
+from ..misc import calculate_game_result, get_operation_snippet
 
 if TYPE_CHECKING:
     from ..services.database import DBUser, UoW
@@ -96,7 +96,7 @@ async def play_game(
     game: Message = await callback.message.edit_text(i18n.get("good-luck"))
     dice: Message = await callback.message.answer_dice(emoji=dices[data["game"]])
 
-    result = get_result_game(data=data, dice=dice.dice.value)
+    result = calculate_game_result(game=data["game"], bet_amount=data["bet"], dice_value=dice.dice.value)
     lose = secrets.choice(i18n.get("lose").split(","))
     await asyncio.sleep(2)
 
