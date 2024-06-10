@@ -1,4 +1,4 @@
-from .callback_data import Back, Game, Menu, Operation
+from .callback import Back, Game, Menu, Operation
 from .locale import Locale
 
 __all__ = [

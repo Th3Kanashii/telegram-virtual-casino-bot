@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "telegram-casino-bot"
-version = "0.1.1"
+version = "0.1.2"
 description = "Casino Bot"
 authors = ["Th3Kanashii <Th3Kanashii@gmail.com>"]
 readme = "README.md"
@@ -20,6 +20,7 @@ pydantic-settings = "^2.2.1"
 sqlalchemy = "^2.0.29"
 betterlogging = "^1.0.0"
 redis = "^5.0.3"
+cachetools = "^5.3.3"
 
 [tool.poetry.group.dev.dependencies]
 libcst = "^1.2.0"
