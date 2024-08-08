@@ -1,11 +1,16 @@
-import asyncio
-from types import TracebackType
-from typing import Optional
+from __future__ import annotations
 
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
+import asyncio
+from typing import TYPE_CHECKING
 
 from .repositories import Repository
 from .uow import UoW
+
+
+if TYPE_CHECKING:
+    from types import TracebackType
+
+    from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
 
 class SQLSessionContext:
@@ -14,7 +19,7 @@ class SQLSessionContext:
     """
 
     _session_pool: async_sessionmaker[AsyncSession]
-    _session: Optional[AsyncSession]
+    _session: AsyncSession | None
 
     def __init__(self, session_pool: async_sessionmaker[AsyncSession]) -> None:
         """
@@ -36,9 +41,9 @@ class SQLSessionContext:
 
     async def __aexit__(
         self,
-        exc_type: Optional[type[BaseException]],
-        exc_value: Optional[BaseException],
-        traceback: Optional[TracebackType],
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
     ) -> None:
         """
         Exit the context manager.

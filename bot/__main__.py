@@ -1,18 +1,24 @@
-import asyncio
+from __future__ import annotations
 
-from aiogram import Bot, Dispatcher
+import asyncio
+from typing import TYPE_CHECKING
+
+
+if TYPE_CHECKING:
+    from aiogram import Bot, Dispatcher
 
 from .config import Config
-from .core import create_bot, create_dispatcher, start_polling
-from .utils import setup_logging
+from .core.factory import create_bot, create_dispatcher
+from .core.runtime import run_polling
+from .utils.logging import setup_logger
 
 
-async def main() -> None:
-    setup_logging()
+def main() -> None:
+    setup_logger()
     config: Config = Config()
     dispatcher: Dispatcher = create_dispatcher(config=config)
     bot: Bot = create_bot(config=config)
-    await start_polling(dispatcher=dispatcher, bot=bot)
+    run_polling(dispatcher=dispatcher, bot=bot)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,15 @@
-from typing import Any, Awaitable, Callable
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Any, Awaitable, Callable
 
 from aiogram import BaseMiddleware
-from aiogram.types import TelegramObject
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from ...services.database import SQLSessionContext
+from bot.services.database import SQLSessionContext
+
+
+if TYPE_CHECKING:
+    from aiogram.types import TelegramObject
+    from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
 
 class DBSessionMiddleware(BaseMiddleware):

@@ -1,4 +1,4 @@
-from __future__ import annotations
+from typing import Self
 
 from aiogram import html
 from aiogram.types import User
@@ -37,7 +37,7 @@ class DBUser(Base, TimestampMixin):
         return html.link(value=self.name, link=self.url)
 
     @classmethod
-    def from_aiogram(cls, user: User, locale: str) -> DBUser:
+    def from_aiogram(cls, user: User, locale: str) -> Self:
         """
         Create an instance of the model from an aiogram User object.
 
@@ -45,4 +45,4 @@ class DBUser(Base, TimestampMixin):
         :param locale: User's locale.
         :return: Instance of the model.
         """
-        return DBUser(id=user.id, name=user.full_name, locale=locale)
+        return cls(id=user.id, name=user.full_name, locale=locale)

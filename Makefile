@@ -1,34 +1,41 @@
-project_dir := .
-package_dir := bot
-locale_dir := locales
+PACKAGE_DIRECTORY := .
+CACHE_DIRECTORY := .cache
 
+# Clean the cache directory
+.PHONY: clean
+clean:
+	rm --force --recursive "${CACHE_DIRECTORY}"
+	rm --force --recursive `find . -type d -name __pycache__`
+
+# Linting commands
 .PHONY: lint
 lint:
-	@poetry run black --check --diff $(project_dir)
-	@poetry run ruff $(project_dir)
-	@poetry run mypy $(project_dir) --strict
+	@hatch run mypy ${PACKAGE_DIRECTORY}
+	@hatch run ruff check ${PACKAGE_DIRECTORY}
+	@hatch run ruff format --check ${PACKAGE_DIRECTORY}
 
-.PHONY: reformat
-reformat:
-	@poetry run black $(project_dir)
-	@poetry run ruff $(project_dir) --fix
+.PHONY: format
+format:
+	@hatch run ruff format ${PACKAGE_DIRECTORY}
+	@hatch run ruff check --fix ${PACKAGE_DIRECTORY}
 
-.PHONY: i18n
-i18n:
-	poetry run i18n multiple-extract \
-		--input-paths $(package_dir) \
-		--output-dir $(locale_dir) \
-		-k i18n -k L --locales $(locale) \
-		--create-missing-dirs
-
+# Migration commands
 .PHONY: migration
 migration:
-	poetry run alembic revision --autogenerate -m $(message) --rev-id $(rev_id)
+	hatch run alembic revision --autogenerate -m $(name) --rev-id $(rev_id)
 
 .PHONY: migrate
 migrate:
-	poetry run alembic upgrade head
+	hatch run alembic upgrade head
 
+# Development commands
+.PHONY: dev
+dev:
+	hatch env create
+	hatch run pip install .
+	hatch run pip install .[dev]
+
+# Docker commands
 .PHONY: app-build
 app-build:
 	docker-compose build

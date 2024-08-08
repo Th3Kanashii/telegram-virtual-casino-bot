@@ -1,10 +1,19 @@
-from aiogram import html
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram_i18n import I18nContext
+from __future__ import annotations
 
-from ..enums import Back, Game, Locale, Menu, Operation
-from .factories import Bet, Games, Language
+from typing import TYPE_CHECKING
+
+from aiogram import html
+from aiogram.types import InlineKeyboardButton
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+
+from bot.enums import Back, Game, Locale, Menu, Operation
+
+from .factory import Bet, Games, Language
+
+
+if TYPE_CHECKING:
+    from aiogram.types import InlineKeyboardMarkup
+    from aiogram_i18n import I18nContext
 
 
 def select_language(i18n: I18nContext) -> InlineKeyboardMarkup:
@@ -58,22 +67,28 @@ def games(i18n: I18nContext) -> InlineKeyboardMarkup:
     keyboard.row(
         *[
             InlineKeyboardButton(
-                text=i18n.get("button-slots"), callback_data=Games(game=Game.SLOTS).pack()
+                text=i18n.get("button-slots"),
+                callback_data=Games(game=Game.SLOTS).pack(),
             ),
             InlineKeyboardButton(
-                text=i18n.get("button-dice"), callback_data=Games(game=Game.DICE).pack()
+                text=i18n.get("button-dice"),
+                callback_data=Games(game=Game.DICE).pack(),
             ),
             InlineKeyboardButton(
-                text=i18n.get("button-basket"), callback_data=Games(game=Game.BASKET).pack()
+                text=i18n.get("button-basket"),
+                callback_data=Games(game=Game.BASKET).pack(),
             ),
             InlineKeyboardButton(
-                text=i18n.get("button-darts"), callback_data=Games(game=Game.DARTS).pack()
+                text=i18n.get("button-darts"),
+                callback_data=Games(game=Game.DARTS).pack(),
             ),
             InlineKeyboardButton(
-                text=i18n.get("button-bowling"), callback_data=Games(game=Game.BOWLING).pack()
+                text=i18n.get("button-bowling"),
+                callback_data=Games(game=Game.BOWLING).pack(),
             ),
             InlineKeyboardButton(
-                text=i18n.get("button-football"), callback_data=Games(game=Game.FOOTBALL).pack()
+                text=i18n.get("button-football"),
+                callback_data=Games(game=Game.FOOTBALL).pack(),
             ),
             InlineKeyboardButton(text=i18n.get("button-back"), callback_data=Back.DEFAULT),
         ],
@@ -97,14 +112,16 @@ def play(i18n: I18nContext, game: str, bet: int = 10) -> InlineKeyboardMarkup:
             InlineKeyboardButton(text=f"{bet} 💎", callback_data=Operation.DEFAULT),
             InlineKeyboardButton(text="+", callback_data=Bet(operation=Operation.ADD).pack()),
             InlineKeyboardButton(
-                text=i18n.get("button-min"), callback_data=Bet(operation=Operation.MIN).pack()
+                text=i18n.get("button-min"),
+                callback_data=Bet(operation=Operation.MIN).pack(),
             ),
             InlineKeyboardButton(
                 text=i18n.get("button-double"),
                 callback_data=Bet(operation=Operation.DOUBLE).pack(),
             ),
             InlineKeyboardButton(
-                text=i18n.get("button-max"), callback_data=Bet(operation=Operation.MAX).pack()
+                text=i18n.get("button-max"),
+                callback_data=Bet(operation=Operation.MAX).pack(),
             ),
             InlineKeyboardButton(text=i18n.get("button-back"), callback_data=Back.GAME),
             InlineKeyboardButton(text=i18n.get(f"{game}-play"), callback_data=Game.PLAY),

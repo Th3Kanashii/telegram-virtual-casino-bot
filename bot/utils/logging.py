@@ -1,23 +1,17 @@
 import logging
 
-import betterlogging as bl
 
-
-def setup_logging() -> None:
+def setup_logger(level: int = logging.INFO) -> None:
     """
-    Set up logging configuration for the application.
+    Set up the logger.
 
-    This method initializes the logging configuration for the application.
-    It sets the log level to INFO and configures a basic colorized log for
-    output. The log format includes the filename, line number, log level,
-    timestamp, logger name, and log message.
+    :param level: The logging level.
     """
-    log_level = logging.WARNING
-    bl.basic_colorized_config(level=log_level)
+    for name in ["aiogram.middlewares", "aiogram.event", "aiohttp.access"]:
+        logging.getLogger(name).setLevel(logging.WARNING)
 
     logging.basicConfig(
-        level=logging.WARNING,
-        format="%(filename)s:%(lineno)d #%(levelname)-8s [%(asctime)s] - %(name)s - %(message)s",
+        format="%(asctime)s %(levelname)s | %(name)s: %(message)s",
+        datefmt="[%H:%M:%S]",
+        level=level,
     )
-    logger = logging.getLogger(__name__)
-    logger.info("Starting bot")

@@ -1,12 +1,14 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, cast
+from typing import TYPE_CHECKING, cast
 
-from aiogram.types import User
 from aiogram_i18n.managers import BaseManager
 
+
 if TYPE_CHECKING:
-    from ...services.database import DBUser, UoW
+    from aiogram.types import User
+
+    from bot.services.database import DBUser, UoW
 
 
 class UserManager(BaseManager):
@@ -15,7 +17,9 @@ class UserManager(BaseManager):
     """
 
     async def get_locale(
-        self, event_from_user: Optional[User] = None, user: Optional[DBUser] = None
+        self,
+        event_from_user: User | None = None,
+        user: DBUser | None = None,
     ) -> str:
         """
         Get the user's locale.
@@ -37,7 +41,6 @@ class UserManager(BaseManager):
         :param locale: The locale to set.
         :param user: The user to set the locale for.
         :param uow: The unit of work.
-        :param companion: The companion to set the locale for.
         """
         user.locale = locale
         await uow.commit(user)

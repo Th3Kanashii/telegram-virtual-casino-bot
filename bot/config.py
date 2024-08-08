@@ -1,5 +1,6 @@
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from sqlalchemy.engine.url import URL
 
 
 class Config(BaseSettings):
@@ -11,8 +12,8 @@ class Config(BaseSettings):
 
     postgres_host: str
     postgres_db: str
-    postgres_password: str
-    postgres_port: str
+    postgres_password: SecretStr
+    postgres_port: int
     postgres_user: str
 
     redis_host: str
@@ -22,12 +23,15 @@ class Config(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
     @property
-    def build_postgres_dsn(self) -> str:
+    def build_postgres_dsn(self) -> URL:
         """
         :return: Build a DSN for the PostgreSQL database.
         """
-        return (
-            "postgresql+asyncpg://"
-            f"{self.postgres_user}:{self.postgres_password}"
-            f"@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}"
+        return URL.create(
+            drivername="postgresql+asyncpg",
+            username=self.postgres_user,
+            password=self.postgres_password.get_secret_value(),
+            host=self.postgres_host,
+            port=self.postgres_port,
+            database=self.postgres_db,
         )

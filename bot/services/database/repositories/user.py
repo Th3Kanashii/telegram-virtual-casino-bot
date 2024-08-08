@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 from typing import Optional, cast
 
 from sqlalchemy import func, select
 
-from ..models import DBUser
+from bot.services.database.models import DBUser
+
 from .base import BaseRepository
 
 
@@ -11,7 +14,7 @@ class UserRepository(BaseRepository):
     The repository for the users.
     """
 
-    async def get(self, user_id: int) -> Optional[DBUser]:
+    async def get(self, user_id: int) -> DBUser | None:
         """
         Get a user by their ID.
 
@@ -23,7 +26,7 @@ class UserRepository(BaseRepository):
             await self._session.scalar(select(DBUser).where(DBUser.id == user_id)),
         )
 
-    async def count_refferals(self, user_id: int) -> Optional[int]:
+    async def count_refferals(self, user_id: int) -> int | None:
         """
         Count the number of refferals for a user.
 
@@ -33,6 +36,6 @@ class UserRepository(BaseRepository):
         return cast(
             Optional[int],
             await self._session.scalar(
-                select(func.count(DBUser.id)).where(DBUser.refferal == user_id)
+                select(func.count(DBUser.id)).where(DBUser.refferal == user_id),
             ),
         )

@@ -1,4 +1,4 @@
-from ..enums import Operation
+from bot.enums import Operation
 
 
 def get_operation_snippet(data: dict, operation: str) -> int:
