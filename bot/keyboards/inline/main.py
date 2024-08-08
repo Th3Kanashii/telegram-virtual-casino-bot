@@ -31,7 +31,7 @@ def select_language(i18n: I18nContext) -> InlineKeyboardMarkup:
             InlineKeyboardButton(text="🇯🇵", callback_data=Language(language=Locale.JA).pack()),
             InlineKeyboardButton(text=i18n.get("button-back"), callback_data=Back.DEFAULT),
         ],
-        width=1,
+        width=3,
     )
     return keyboard.as_markup()
 
