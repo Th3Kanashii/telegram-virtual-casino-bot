@@ -25,7 +25,9 @@ A bot was created for the demonstration [@BaacharuKajino](https://t.me/BaacharuK
 
    Rename the `.env.dist` file to `.env` and specify the necessary parameters for the bot to work.
 
-3. **Build the application and run the bot:**
+3. **Configure url in `alembic.ini`**
+
+4. **Build the application and run the bot:**
 
     Execute the following commands:
 
@@ -55,13 +57,6 @@ make migration message=MESSAGE_WHAT_THE_MIGRATION_DOES rev_id=ID_MIGRATION
 ```bash
 make migrate
 ```
-
-### Update locales
-
-1. Parse new used localization keys to update locales files
-   (`make i18n locale=TRANSLATION_LOCALE`)
-2. Write new locales in `.ftl` files by `translations/TRANSLATION_LOCALE`
-3. Restart the bot
 
 ## Used technologies
 
