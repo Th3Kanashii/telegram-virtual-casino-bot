@@ -10,30 +10,23 @@ clean:
 # Linting commands
 .PHONY: lint
 lint:
-	@hatch run mypy ${PACKAGE_DIRECTORY}
-	@hatch run ruff check ${PACKAGE_DIRECTORY}
-	@hatch run ruff format --check ${PACKAGE_DIRECTORY}
+	@poetry run mypy ${PACKAGE_DIRECTORY}
+	@poetry run ruff check ${PACKAGE_DIRECTORY}
+	@poetry run ruff format --check ${PACKAGE_DIRECTORY}
 
 .PHONY: format
 format:
-	@hatch run ruff format ${PACKAGE_DIRECTORY}
-	@hatch run ruff check --fix ${PACKAGE_DIRECTORY}
+	@poetry run ruff format ${PACKAGE_DIRECTORY}
+	@poetry run ruff check --fix ${PACKAGE_DIRECTORY}
 
 # Migration commands
 .PHONY: migration
 migration:
-	hatch run alembic revision --autogenerate -m $(name) --rev-id $(rev_id)
+	poetry run alembic revision --autogenerate -m $(name) --rev-id $(rev_id)
 
 .PHONY: migrate
 migrate:
-	hatch run alembic upgrade head
-
-# Development commands
-.PHONY: dev
-dev:
-	hatch env create
-	hatch run pip install .
-	hatch run pip install .[dev]
+	poetry run alembic upgrade head
 
 # Docker commands
 .PHONY: app-build
