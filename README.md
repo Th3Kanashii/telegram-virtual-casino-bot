@@ -11,7 +11,7 @@ A bot was created for the demonstration [@BaacharuKajino](https://t.me/BaacharuK
 - Docker
 - docker-compose
 - make
-- poetry
+- uv
 
 ## Deployment
 
@@ -41,7 +41,7 @@ A bot was created for the demonstration [@BaacharuKajino](https://t.me/BaacharuK
 ### Setup environment
 
 ```bash
-poetry install
+uv sync
 ```
 
 ### Update database tables structure
@@ -49,7 +49,7 @@ poetry install
 **Make migration script:**
 
 ```bash
-make migration message=MESSAGE_WHAT_THE_MIGRATION_DOES rev_id=ID_MIGRATION
+make migration message=MESSAGE_WHAT_THE_MIGRATION_DOES
 ```
 
 **Run migrations:**
