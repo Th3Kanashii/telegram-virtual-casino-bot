@@ -8,7 +8,6 @@ from aiogram.utils.deep_linking import create_start_link
 from bot.enums import Back, Menu
 from bot.keyboards.inline import back_menu, menu
 
-
 if TYPE_CHECKING:
     from aiogram import Bot
     from aiogram.types import CallbackQuery
@@ -34,7 +33,7 @@ async def refferals(
     :param i18n: The i18n context.
     :param user: The user.
     """
-    count = await repository.user.count_refferals(user_id=user.id)
+    count = await repository.user.count_referrals(user_id=user.id)
     link = await create_start_link(bot=bot, payload=str(user.id), encode=True)
     await callback.message.edit_text(
         text=i18n.get("refferal", name=user.mention, link=link, count=count),

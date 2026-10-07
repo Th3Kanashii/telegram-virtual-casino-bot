@@ -6,7 +6,6 @@ from aiogram import BaseMiddleware
 
 from bot.services.database import SQLSessionContext
 
-
 if TYPE_CHECKING:
     from aiogram.types import TelegramObject
     from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker

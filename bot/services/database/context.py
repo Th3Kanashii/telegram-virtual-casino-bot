@@ -6,7 +6,6 @@ from typing import TYPE_CHECKING
 from .repositories import Repository
 from .uow import UoW
 
-
 if TYPE_CHECKING:
     from types import TracebackType
 

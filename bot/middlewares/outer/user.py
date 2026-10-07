@@ -6,7 +6,6 @@ from aiogram import BaseMiddleware
 
 from bot.services.database import DBUser
 
-
 if TYPE_CHECKING:
     from aiogram.types import Chat, TelegramObject, User
     from aiogram_i18n import I18nMiddleware

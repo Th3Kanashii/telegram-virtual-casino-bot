@@ -23,7 +23,8 @@ help = 😍 <b>{ $name }, commands:
        🔄 Please note: the bot is for demonstration purposes only, and your data may be reset at any time!
        ❌ Remember: gambling addiction is a disease, and there are no paid options in the bot.
 
-       🔗 Project link: <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a></b>
+       🔗 Project link: <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a>
+       ☕ Support the project: <a href='https://buymeacoffee.com/th3kanashii'>Buy Me a Coffee</a></b>
 
 refferal = 🥰 <b>{ $name }, get 10,000 crystals 💎 for each invited user!
            🔩 <u>You</u> have already referred: <code>{ $count }</code>
@@ -41,9 +42,10 @@ share = 👋 Hi friend! I want to tell you about an awesome bot I recently found
         { $link }
 
 button-games = 🎲 Games
-button-refferals = ☕ Refferals
+button-refferals = 🔗 Refferals
 button-language = 🌐 Language
-button-support = 💬 Support
+button-support = 🤝 Collaboration
+button-support-me = ☕ Support
 button-all = ❤️ Tell friends
 
 button-slots = 🎰 Slots

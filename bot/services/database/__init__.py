@@ -4,7 +4,6 @@ from .models import Base, DBUser
 from .repositories import Repository, UserRepository
 from .uow import UoW
 
-
 __all__ = [
     "Base",
     "DBUser",

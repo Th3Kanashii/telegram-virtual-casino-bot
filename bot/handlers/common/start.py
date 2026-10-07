@@ -7,7 +7,6 @@ from aiogram.filters import Command, CommandStart
 
 from bot.keyboards.inline import menu
 
-
 if TYPE_CHECKING:
     from aiogram.filters import CommandObject
     from aiogram.types import Message
@@ -41,9 +40,14 @@ async def start_deep_link_command(
     :param uow: The unit of work.
     :param repository: The repository.
     """
+    if not command.args:
+        return
+
     referrer_id = int(command.args)
     if not user.refferal and user.id != referrer_id:
         refferal = await repository.user.get(user_id=referrer_id)
+        if not refferal:
+            return
         refferal.balance += 10000
         user.refferal = referrer_id
         user.balance += 30000

@@ -9,7 +9,6 @@ services:
          - "${REDIS_PORT}"
       volumes:
          - redis-data:${REDIS_DATA}
-      command: [ "--requirepass", "${REDIS_PASSWORD}" ]
 
    postgres:
       image: postgres:16-alpine
@@ -34,8 +33,6 @@ services:
       depends_on:
          - redis
          - postgres
-      ports:
-         - "${SERVER_PORT}:${SERVER_PORT}"
       entrypoint: [ "/app/scripts/run-bot.sh" ]
 
 volumes:

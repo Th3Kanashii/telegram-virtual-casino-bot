@@ -2,14 +2,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-
 if TYPE_CHECKING:
     from aiogram import Bot, Dispatcher
 
 from .polling import polling_shutdown, polling_startup
 
 
-def run_polling(bot: Bot, dispatcher: Dispatcher) -> None:
+async def run_polling(bot: Bot, dispatcher: Dispatcher) -> None:
     """
     Run the bot in the polling mode.
 
@@ -18,4 +17,4 @@ def run_polling(bot: Bot, dispatcher: Dispatcher) -> None:
     """
     dispatcher.startup.register(polling_startup)
     dispatcher.shutdown.register(polling_shutdown)
-    dispatcher.run_polling(bot)
+    await dispatcher.start_polling(bot)

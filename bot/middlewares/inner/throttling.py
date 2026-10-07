@@ -6,7 +6,6 @@ from aiogram import BaseMiddleware
 from aiogram.dispatcher.flags import get_flag
 from cachetools import TTLCache
 
-
 if TYPE_CHECKING:
     from aiogram.types import Message
 

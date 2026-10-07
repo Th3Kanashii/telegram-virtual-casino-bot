@@ -7,7 +7,6 @@ from aiogram import F, Router
 from bot.enums import Menu
 from bot.keyboards.inline import Language, menu, select_language
 
-
 if TYPE_CHECKING:
     from aiogram.types import CallbackQuery
     from aiogram_i18n import I18nContext

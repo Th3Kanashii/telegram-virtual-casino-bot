@@ -32,7 +32,7 @@ migrate: ## Apply database migrations
 
 .PHONY: app-run-db
 app-run-db: ## Run bot database containers
-	@docker compose up -d --remove-orphans postgres redis
+	@docker-compose up -d --remove-orphans postgres redis
 
 ##@ App commands
 
@@ -42,28 +42,28 @@ run: ## Run bot
 
 .PHONY: app-build
 app-build: ## Build bot image
-	@docker compose build
+	@docker-compose build
 
 .PHONY: app-run
 app-run: ## Run bot in docker container
-	@docker compose stop
-	@docker compose up -d --remove-orphans
+	@docker-compose stop
+	@docker-compose up -d --remove-orphans
 
 .PHONY: app-stop
 app-stop: ## Stop docker containers
-	@docker compose stop
+	@docker-compose stop
 
 .PHONY: app-down
 app-down: ## Down docker containers
-	@docker compose down
+	@docker-compose down
 
 .PHONY: app-destroy
 app-destroy: ## Destroy docker containers
-	@docker compose down -v --remove-orphans
+	@docker-compose down -v --remove-orphans
 
 .PHONY: app-logs
 app-logs: ## Show bot logs
-	@docker compose logs -f bot
+	@docker-compose logs -f bot
 
 ##@ Other
 

@@ -6,7 +6,6 @@ from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
-
 if TYPE_CHECKING:
     from bot.config import Config
 

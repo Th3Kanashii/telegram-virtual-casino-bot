@@ -17,8 +17,9 @@ def calculate_game_result(game: Game, bet_amount: int, dice_value: int) -> int |
     game_calculators: dict[Game, Callable[[int, int], int | float]] = {
         Game.BASKET: lambda bet, dice: bet * {4: 1.5, 5: 2.5}.get(dice, -1),
         Game.BOWLING: lambda bet, dice: bet * {5: 1.5, 6: 5}.get(dice, -1),
-        Game.SLOTS: lambda bet, dice: bet
-        * {1: 4, 22: 4, 43: 4, 16: 3, 32: 3, 48: 3, 64: 5}.get(dice, -1),
+        Game.SLOTS: lambda bet, dice: (
+            bet * {1: 4, 22: 4, 43: 4, 16: 3, 32: 3, 48: 3, 64: 5}.get(dice, -1)
+        ),
         Game.FOOTBALL: lambda bet, dice: bet * {3: 1.5, 4: 1.5, 5: 1.5}.get(dice, -1),
         Game.DARTS: lambda bet, dice: bet * {4: 1, 5: 1.5, 6: 2}.get(dice, -1),
         Game.DICE: lambda bet, dice: bet * {4: 1.5, 5: 2, 6: 3}.get(dice, -1),

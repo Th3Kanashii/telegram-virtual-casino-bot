@@ -8,7 +8,6 @@ from redis.asyncio import ConnectionPool, Redis
 
 from .setup import setup_filters, setup_inner_middlewares, setup_outer_middlewares, setup_routers
 
-
 if TYPE_CHECKING:
     from bot.config import Config
 

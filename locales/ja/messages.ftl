@@ -23,7 +23,8 @@ help = 😍 <b>{ $name }、コマンド：
        🔄 注意：このボットはデモンストレーション用途のみであり、データはいつでもリセットされる可能性があります！
        ❌ 注意してください：ギャンブル依存症は病気です。ボットには有料オプションはありません。
 
-       🔗 プロジェクトリンク： <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a></b>
+       🔗 プロジェクトへのリンク：<a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a>
+       ☕ プロジェクトを支援する：<a href='https://buymeacoffee.com/th3kanashii'>Buy Me a Coffee</a></b>
 
 refferal = 🥰 <b>{ $name }さん、招待したユーザーごとに 10,000 クリスタル 💎 をゲットしてください！
            🔩 <u>あなた</u> は既に紹介した人数: <code>{ $count }</code>
@@ -41,9 +42,10 @@ share = 👋 こんにちは、友人！最近見つけた素晴らしいボッ�
         { $link }
 
 button-games = 🎲 ゲーム
-button-refferals = ☕ 紹介
+button-refferals = 🔗 紹介
 button-language = 🌐 言語
-button-support = 💬 サポート
+button-support = 🤝 コラボレーション
+button-support-me = ☕ 支援する
 button-all = ❤️ 友達に教えて
 
 button-slots = 🎰 スロット

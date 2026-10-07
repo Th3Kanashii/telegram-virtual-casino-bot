@@ -10,7 +10,6 @@ from bot.enums import Back, Game, Locale, Menu, Operation
 
 from .factory import Bet, Games, Language
 
-
 if TYPE_CHECKING:
     from aiogram.types import InlineKeyboardMarkup
     from aiogram_i18n import I18nContext
@@ -49,7 +48,10 @@ def menu(i18n: I18nContext) -> InlineKeyboardMarkup:
     keyboard.row(
         InlineKeyboardButton(text=i18n.get("button-refferals"), callback_data=Menu.REFERRALS),
         InlineKeyboardButton(text=i18n.get("button-language"), callback_data=Menu.LANGUAGE),
-        InlineKeyboardButton(text=i18n.get("button-support"), url="https://t.me/Th3Kanashii"),
+        InlineKeyboardButton(
+            text=i18n.get("button-support-me"), url="https://buymeacoffee.com/th3kanashii"
+        ),
+        InlineKeyboardButton(text=i18n.get("button-support"), url="https://t.me/Kish1be"),
         width=2,
     )
     return keyboard.as_markup()

@@ -4,7 +4,6 @@ from typing import TYPE_CHECKING
 
 from aiogram.types import BotCommand, BotCommandScopeAllPrivateChats
 
-
 if TYPE_CHECKING:
     from aiogram import Bot, Dispatcher
     from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
@@ -37,7 +36,6 @@ async def polling_shutdown(bot: Bot, dispatcher: Dispatcher) -> None:
     session_pool: async_sessionmaker[AsyncSession] = dispatcher["session_pool"]
     async with session_pool() as session:
         await session.close_all()
-        await session.bind.dispose()
 
     await dispatcher.storage.close()
     await bot.session.close()

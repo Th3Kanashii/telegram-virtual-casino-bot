@@ -23,7 +23,8 @@ help = 😍 <b>{ $name }, команди:
        🔄 Зверніть увагу: бот призначений лише для демонстраційних цілей, і ваші дані можуть бути скинуті в будь-який час!
        ❌ Пам'ятайте: залежність від гри - це хвороба, і в боті немає платних опцій.
 
-       🔗 Посилання на проект: <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a></b>
+       🔗 Посилання на проект: <a href='https://github.com/Th3Kanashii/telegram-virtual-casino-bot'>GitHub</a>
+       ☕ Підтримати проект: <a href='https://buymeacoffee.com/th3kanashii'>Buy Me a Coffee</a></b>
 
 refferal = 🥰 <b>{ $name }, отримуйте 10,000 кристалів 💎 за кожного запрошеного користувача!
            🔩 <u>Ви</u>, вже привели до бота: <code>{ $count }</code>
@@ -41,9 +42,10 @@ share = 👋 Привіт, друже! Хочу розповісти тобі п
         { $link }
 
 button-games = 🎲 Ігри
-button-refferals = ☕ Реферали
+button-refferals = 🔗 Реферали
 button-language = 🌐 Мова
-button-support = 💬 Підтримка
+button-support = 🤝 Співпраця
+button-support-me = ☕ Підтримати
 button-all = ❤️ Розказати друзям
 
 button-slots = 🎰 Слоти

@@ -13,7 +13,6 @@ from bot.enums import Back, Game, Menu
 from bot.keyboards.inline import Bet, Games, games, play
 from bot.misc import calculate_game_result, get_operation_snippet
 
-
 if TYPE_CHECKING:
     from aiogram.fsm.context import FSMContext
     from aiogram.types import CallbackQuery, Message

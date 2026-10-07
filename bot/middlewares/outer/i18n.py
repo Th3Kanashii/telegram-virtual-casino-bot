@@ -4,7 +4,6 @@ from typing import TYPE_CHECKING, cast
 
 from aiogram_i18n.managers import BaseManager
 
-
 if TYPE_CHECKING:
     from aiogram.types import User
 

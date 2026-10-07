@@ -14,7 +14,6 @@ from bot.middlewares.inner import ThrottlingMiddleware
 from bot.middlewares.outer import DBSessionMiddleware, UserManager, UserMiddleware
 from bot.services.database import create_pool
 
-
 if TYPE_CHECKING:
     from aiogram import Dispatcher
 

@@ -4,7 +4,6 @@ from typing import Annotated, TypeAlias
 from sqlalchemy import BigInteger, DateTime, Integer, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, registry
 
-
 Int16: TypeAlias = Annotated[int, 16]
 Int64: TypeAlias = Annotated[int, 64]
 
